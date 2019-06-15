@@ -2,7 +2,7 @@
   "name": "path-generator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mxdavis.github.io/pathgenerator",
+  "homepage": "https://mxdavis.github.io/path-generator/",
   "dependencies": {
     "@types/jest": "24.0.14",
     "@types/node": "12.0.8",
