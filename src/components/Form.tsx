@@ -12,7 +12,10 @@ export const Form = (): JSX.Element => {
   const message = (): string => {
     if (invalidPath(importPath)) return 'Enter the relative path for the file you want to insert'
     if (invalidPath(filePath)) return 'Enter the relative path for the file you are working in'
-    return new Generator(filePath, importPath).path
+
+  const handleOnClick = (event: React.MouseEvent<HTMLInputElement>): void => {
+    if (event.target.value === defaultImportPathValue) return setImportPath('')
+    if (event.target.value === defaultFilePathValue) return setFilePath('')
   }
 
   return (
@@ -20,6 +23,9 @@ export const Form = (): JSX.Element => {
       <form>
         <input
           type="text"
+          onClick={(event: React.MouseEvent<HTMLInputElement>): void => {
+            return handleOnClick(event)
+          }}
           onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
             return setImportPath(event.target.value)
           }}
@@ -27,6 +33,9 @@ export const Form = (): JSX.Element => {
         />
         <input
           type="text"
+          onClick={(event: React.MouseEvent<HTMLInputElement>): void => {
+            return handleOnClick(event)
+          }}
           onChange={(event: React.ChangeEvent<HTMLInputElement>): void => {
             return setFilePath(event.target.value)
           }}
