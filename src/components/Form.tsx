@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Generator } from '../logic/generator'
 
 export const Form = (): JSX.Element => {
-  const [importPath, setImportPath] = useState('Set Import Path')
-  const [filePath, setFilePath] = useState('Set File Path')
+  const defaultImportPathValue = 'Set Import Path'
+  const defaultFilePathValue = 'Set File Path'
 
+  const [importPath, setImportPath] = useState(defaultImportPathValue)
+  const [filePath, setFilePath] = useState(defaultFilePathValue)
   const invalidPath = (path: string): boolean => path.length < 4 || /\s/.test(path)
 
   const message = (): string => {
