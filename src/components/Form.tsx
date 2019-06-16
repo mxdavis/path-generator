@@ -7,11 +7,15 @@ export const Form = (): JSX.Element => {
 
   const [importPath, setImportPath] = useState(defaultImportPathValue)
   const [filePath, setFilePath] = useState(defaultFilePathValue)
+
   const invalidPath = (path: string): boolean => path.length < 4 || /\s/.test(path)
 
   const message = (): string => {
     if (invalidPath(importPath)) return 'Enter the relative path for the file you want to insert'
     if (invalidPath(filePath)) return 'Enter the relative path for the file you are working in'
+    const path: string = new Generator(filePath, importPath).path
+    return 'import ' + path
+  }
 
   const handleOnClick = (event: React.MouseEvent<HTMLInputElement>): void => {
     if (event.target.value === defaultImportPathValue) return setImportPath('')
