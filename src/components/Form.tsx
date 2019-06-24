@@ -18,8 +18,9 @@ export const Form = (): JSX.Element => {
   }
 
   const handleOnClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-    if (event.target.value === defaultImportPathValue) return setImportPath('')
-    if (event.target.value === defaultFilePathValue) return setFilePath('')
+    const value = (event.target as HTMLButtonElement).value
+    if (value === defaultImportPathValue) return setImportPath('')
+    if (value === defaultFilePathValue) return setFilePath('')
   }
 
   return (
